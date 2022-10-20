@@ -154,6 +154,8 @@ data:
     #!/bin/sh
     if [ -x /host/sbin/iscsiadm ]; then
       chroot /host /sbin/iscsiadm "$@"
+    elif [ -x /host/usr/sbin/iscsiadm ]; then
+      chroot /host /usr/sbin/iscsiadm "$@"
     elif [ -x /host/usr/local/sbin/iscsiadm ]; then
       chroot /host /usr/local/sbin/iscsiadm "$@"
     elif [ -x /host/bin/iscsiadm ]; then
