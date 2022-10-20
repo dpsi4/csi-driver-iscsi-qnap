@@ -511,7 +511,7 @@ func GetISCSIDevices(devicePaths []string, strict bool) (devices []Device, err e
 
 // lsblk execute the lsblk commands
 func lsblk(devicePaths []string, strict bool) (deviceInfo, error) {
-	flags := []string{"-rn", "-o", "NAME,KNAME,PKNAME,HCTL,TYPE,TRAN,SIZE"}
+	flags := []string{"-fs", "-rn", "-o", "NAME,KNAME,PKNAME,HCTL,TYPE,TRAN,SIZE"}
 	command := execCommand("lsblk", append(flags, devicePaths...)...)
 	debug.Println(command.String())
 	out, err := command.Output()
